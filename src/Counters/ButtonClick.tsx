@@ -1,4 +1,5 @@
 import React from "react";
+import {Button, Grid} from "@material-ui/core";
 
 type ButtonType = {
     onClick: () => void
@@ -12,7 +13,7 @@ type ButtonType = {
     error?: boolean
 }
 
-export function Button(props: ButtonType) {
+export function ButtonClick(props: ButtonType) {
     const onClick = () => {
         props.onClick();
         props.setEditMode && props.setEditMode(false);
@@ -21,9 +22,14 @@ export function Button(props: ButtonType) {
         }
     }
     return (
-        <div>
-            <button onClick={onClick}
-                    disabled={props.valueMax === props.value || props.editMode || props.error}>{props.title}</button>
-        </div>
+        <Grid
+            container
+            direction="row-reverse"
+            justify="center"
+            alignItems="flex-start"
+        >
+            <Button onClick={onClick} size={'small'} color={'primary'} variant={'contained'}
+                    disabled={props.valueMax === props.value || props.editMode || props.error}>{props.title}</Button>
+        </Grid>
     )
 }

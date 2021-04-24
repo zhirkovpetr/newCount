@@ -1,4 +1,5 @@
 import React from "react";
+import {Box} from "@material-ui/core";
 
 type screenType = {
     value: number
@@ -11,7 +12,10 @@ type screenType = {
 export function Screen(props: screenType) {
     return (
         <div>
-            {props.error? <span>error</span> : props.editMode ? <span>settings</span> : <span> {props.count}</span>}
+            <Box display="block" displayPrint="none" style={{fontSize: '30px'}}>
+                {props.error ? <Box style={{color: 'red'}}> error </Box> : props.editMode ? <Box>settings</Box> :
+                    <Box> {props.count}</Box>}
+            </Box>
         </div>
     )
 }

@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './App.css';
 import {SetCount} from "./Counters/setCount/SetCount";
 import {Count} from "./Counters/count/Count";
+import {Grid} from "@material-ui/core";
 
 
 function App() {
@@ -70,14 +71,22 @@ function App() {
     }
 
     return (
-        <div>
-            <SetCount value={value} valueMax={valueMax} updateValue={updateValue} updateValueMax={updateValueMax}
-                      error={error} setError={setError} setCount={setCount} setItemValue={setItemValue}
-                      setEditMode={setEditMode}/>
-
-            <Count addInc={addInc} reset={reset} value={value} valueMax={valueMax} editMode={editMode}
-                   count={count} error={error}/>
-        </div>
+        <Grid container spacing={2}>
+            <Grid item xs={12}>
+                <Grid container justify="center" spacing={2}
+                      style={{margin: '20px auto', border: '1px solid #3f51b5', width: '230px', height: '300px'}}>
+                        <SetCount value={value} valueMax={valueMax} updateValue={updateValue}
+                                  updateValueMax={updateValueMax}
+                                  error={error} setError={setError} setCount={setCount} setItemValue={setItemValue}
+                                  setEditMode={setEditMode}/>
+                </Grid>
+                <Grid container justify="center" spacing={2}
+                      style={{margin: '20px auto', border: '1px solid #3f51b5', width: '230px', height: '100px'}}>
+                        <Count addInc={addInc} reset={reset} value={value} valueMax={valueMax} editMode={editMode}
+                               count={count} error={error}/>
+                </Grid>
+            </Grid>
+        </Grid>
     );
 }
 

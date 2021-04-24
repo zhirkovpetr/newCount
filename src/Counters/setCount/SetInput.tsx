@@ -2,11 +2,11 @@ import React, {ChangeEvent} from "react";
 import {TextField} from "@material-ui/core";
 
 type SetInputType = {
-    title: string
     value: number
     update: (value: number) => void
     setEditMode: (EditMode: boolean) => void
     error: boolean
+    label: string
 }
 
 export function SetInput(props: SetInputType) {
@@ -19,14 +19,14 @@ export function SetInput(props: SetInputType) {
 
     return (
         <span>
-             {props.title}
             <TextField
                 variant={'outlined'}
                 type={'number'}
+                label={props.label}
                 value={props.value}
                 onChange={onChange}
                 error={props.error}
-                helperText={'Incorrect value entered!'}
+                helperText={ props.error ? 'Incorrect value entered!' : ''}
             />
     </span>
 

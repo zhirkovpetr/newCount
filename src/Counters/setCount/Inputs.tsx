@@ -1,5 +1,6 @@
 import React from "react";
 import {SetInput} from "./SetInput";
+import {Grid} from "@material-ui/core";
 
 type InputsType = {
     value: number
@@ -13,12 +14,16 @@ type InputsType = {
 
 export function Inputs(props: InputsType) {
     return (
-        <div>
+        <Grid>
             {props.value >= props.valueMax || props.value < 0 || props.valueMax < 0 ? props.setError(true) : props.setError(false)}
-            <SetInput title={'max value: '} value={props.valueMax} update={props.updateValueMax}
+            <Grid style={{margin: '30px'}}>
+            <SetInput label={'Max value'} value={props.valueMax} update={props.updateValueMax}
                       setEditMode={props.setEditMode} error={props.error}/> <br/>
-            <SetInput title={'start value: '} value={props.value} update={props.updateValue}
+            </Grid>
+                <Grid style={{margin: '30px'}}>
+            <SetInput label={'Start value'} value={props.value} update={props.updateValue}
                       setEditMode={props.setEditMode} error={props.error}/>
-        </div>
+                </Grid>
+        </Grid>
     )
 }

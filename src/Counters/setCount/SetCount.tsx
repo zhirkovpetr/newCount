@@ -1,6 +1,8 @@
 import {Inputs} from "./Inputs";
-import {Button} from "../Button";
+import {ButtonClick} from "../ButtonClick";
 import React from "react";
+import {Grid} from "@material-ui/core";
+
 
 type SetCountType = {
     setItemValue: () => void
@@ -16,12 +18,17 @@ type SetCountType = {
 
 export const SetCount = (props: SetCountType) => {
     return (
-        <div>
-            <Inputs value={props.value} valueMax={props.valueMax} updateValue={props.updateValue}
-                    updateValueMax={props.updateValueMax}
-                    setEditMode={props.setEditMode} error={props.error} setError={props.setError}/>
-            <Button onClick={props.setItemValue} title={'set'} value={props.value} valueMax={props.valueMax}
-                    setEditMode={props.setEditMode} setCount={props.setCount} error={props.error}/>
-        </div>
+        <Grid>
+            <Grid >
+                <Inputs value={props.value} valueMax={props.valueMax} updateValue={props.updateValue}
+                        updateValueMax={props.updateValueMax}
+                        setEditMode={props.setEditMode} error={props.error} setError={props.setError}/>
+            </Grid>
+            <Grid style={{marginTop: '10px'}}>
+
+                <ButtonClick onClick={props.setItemValue} title={'set'} value={props.value} valueMax={props.valueMax}
+                             setEditMode={props.setEditMode} setCount={props.setCount} error={props.error}/>
+            </Grid>
+        </Grid>
     )
 }

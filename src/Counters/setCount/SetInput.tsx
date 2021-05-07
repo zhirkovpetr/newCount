@@ -3,7 +3,7 @@ import {TextField} from "@material-ui/core";
 
 type SetInputType = {
     value: number
-    update: (value: number) => void
+    update: (minValue: number) => void
     setEditMode: (EditMode: boolean) => void
     error: boolean
     label: string
